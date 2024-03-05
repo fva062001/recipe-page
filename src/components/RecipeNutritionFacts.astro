@@ -1,0 +1,42 @@
+---
+ const {nutrition} = Astro.props
+
+ type nutrition = {
+     name: string,
+     value: string
+ }
+---
+
+<div>
+    <h2 class="text-[#854632] text-3xl mb-6">Nutrition</h2>
+    <p class="my-6 text-base font-light text-[#5F564D] description">The table below shows nutritional values per serving without the additional fillings.
+    </p>
+    <table class="table-auto w-full border-spacing-3">
+        {nutrition.map((nutrition:nutrition) => {
+            return (
+                <tr class="text-md">
+                    <td class="description text-[#5F564D]  font-normal">{nutrition.name}</td>
+                    <td class="description text-[#854632] font-bold">{nutrition.value}</td>
+                </tr>
+            )
+        
+        })}
+    </table>
+
+</div>
+
+<style>
+    h2{
+        font-family: 'Young Serif',serif;
+    }
+    .description {
+        font-family: 'Outfit Variable', sans-serif;
+    }
+    tr {
+    border-bottom: 1px solid #E3DDD7;
+}
+
+tr:last-child {
+    border-bottom: none;
+}
+</style>

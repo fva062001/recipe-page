@@ -1,0 +1,30 @@
+---
+const {ingredients} = Astro.props;
+---
+
+<div>
+    <h2 class="text-[#854632] text-3xl mb-6">Ingredients</h2>
+    <ul class="list-disc">
+        {ingredients.map((ingredient:string) => (
+            <li class="text-[#5F564D] font-normal mb-2">{ingredient}</li>
+        ))}
+    </ul>
+</div>
+
+
+
+
+<style>
+    h2{
+        font-family: 'Young Serif',serif;
+    }
+    li {
+        font-family: 'Outfit Variable', sans-serif;
+    }
+    li::marker {
+  color: #854632;
+    }
+    ul{
+        list-style-position: inside;
+    }
+</style>

@@ -1,0 +1,41 @@
+---
+const {instructions} = Astro.props;
+
+type Instruction = {
+    title: string;
+    content: string;
+}
+
+
+---
+
+<div class="py-6 border-y-[1px] border-[#E3DDD7] ">
+    <h2 class="text-[#854632] text-3xl mb-6">Instructions</h2>
+    <ol class="list-decimal text-justify custom-list">
+        {instructions.map((instruction:Instruction, index:number) => (
+            <li class="text-[#5F564D] font-light mb-2 text-base">
+                <div class="flex flex-row align-top text-justify instruction-content">
+                    <span class="list-number">{index + 1}.</span>
+                    <p class=" font-normal"><span class="font-bold ">{instruction.title}</span>{instruction.content}</p>
+                </div>
+            </li>
+        ))}
+    </ol>
+</div>
+
+<style>
+    h2{
+        font-family: 'Young Serif',serif;
+    }
+    .instruction-content {
+        font-family: 'Gabarito Variable', system-ui;
+    }
+    .custom-list {
+        list-style-type: none;
+    }
+    .list-number {
+        font-weight: bold;
+        color: #854632;
+        margin-right: 0.5em;
+    }
+</style>
